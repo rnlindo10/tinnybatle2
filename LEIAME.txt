@@ -1,0 +1,24 @@
+MAPA E CAMERA - Tutorial 06 (Godot 4.5)
+=======================================
+
+Como abrir:
+  1. Abra o Godot 4.5 -> Importar -> escolha o arquivo project.godot desta pasta.
+  2. Na primeira abertura o Godot importa a imagem (leva alguns segundos).
+  3. Aperte F5 para jogar. Setas do teclado movem o personagem.
+
+Objetivo: encontrar a bandeira (canto superior direito, dentro do labirinto de arvores).
+Bateu em algo (agua, arvore, predio, carro...)? A fase recomeca.
+
+Estrutura:
+  jogo.tscn      cena principal: Jogo > Mundo > (Chao, Pista, Agua, Decoracao) + Alvo + Player + Tutorial
+  player.tscn    CharacterBody2D + AnimatedSprite2D (idle/walk) + CollisionShape2D + Camera2D
+  player.gd      movimento e animacoes (script do tutorial)
+  tileset.tres   TileSet 16x16 com fisica: agua e decoracao colidem
+  mundo.gd       monta o mapa inicial nas 4 TileMapLayer (so se todas estiverem vazias)
+  arte/tilemap_packed.png   arte PLACEHOLDER no mesmo formato do Tiny Battle (18x11 tiles)
+
+Usar a arte do Kenney (Tiny Battle):
+  A imagem arte/tilemap_packed.png deste projeto foi desenhada para testes.
+  Se trocar pelo tilemap_packed.png original do Kenney, os tiles mudam de lugar no atlas:
+  refaca a pintura das camadas e a colisao (passos 5 a 7 do tutorial).
+  Para pintar o seu proprio mapa: remova o script do no "Mundo" e pinte nas camadas.

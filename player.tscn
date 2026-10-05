@@ -48,7 +48,10 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_corpo")
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 608
-limit_bottom = 304
+limit_right = 600
+limit_bottom = 300
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0

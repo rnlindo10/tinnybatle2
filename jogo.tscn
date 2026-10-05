@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://jogo.gd" id="1_jogo"]
 [ext_resource type="Script" path="res://mundo.gd" id="2_mundo"]
 [ext_resource type="TileSet" path="res://tileset.tres" id="3_tileset"]
-[ext_resource type="PackedScene" path="res://bandeira.tscn" id="4_bandeira"]
+[ext_resource type="PackedScene" path="res://alvo.tscn" id="4_alvo"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="5_player"]
-[ext_resource type="Texture2D" path="res://arte/foto.png" id="6_foto"]
 
 [node name="Jogo" type="Node2D"]
 script = ExtResource("1_jogo")
@@ -25,63 +24,38 @@ tile_set = ExtResource("3_tileset")
 [node name="Decoração" type="TileMapLayer" parent="Mundo"]
 tile_set = ExtResource("3_tileset")
 
-[node name="Bandeira" parent="." instance=ExtResource("4_bandeira")]
+[node name="Alvo" parent="." instance=ExtResource("4_alvo")]
 position = Vector2(568, 40)
 
 [node name="Player" parent="." instance=ExtResource("5_player")]
 position = Vector2(40, 120)
 
+[node name="Tutorial" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 98.0
+offset_right = 152.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0.1, 0.12, 0.2, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 10
+text = "Encontre a bandeira!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="Caixa" type="Control" parent="Interface"]
+[node name="Dica" type="Label" parent="Interface"]
 visible = false
-layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -16.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Fundo" type="ColorRect" parent="Interface/Caixa"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.7)
-
-[node name="Centro" type="VBoxContainer" parent="Interface/Caixa"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Foto" type="TextureRect" parent="Interface/Caixa/Centro"]
-texture_filter = 2
-custom_minimum_size = Vector2(120, 104)
-layout_mode = 2
-texture = ExtResource("6_foto")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Mensagem" type="Label" parent="Interface/Caixa/Centro"]
-layout_mode = 2
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0.1, 0.12, 0.2, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 16
-text = "W neguin hahaha"
-horizontal_alignment = 1
-
-[node name="Dica" type="Label" parent="Interface/Caixa/Centro"]
-layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 9
 text = "Aperte Enter para jogar de novo"
 horizontal_alignment = 1
+vertical_alignment = 1
